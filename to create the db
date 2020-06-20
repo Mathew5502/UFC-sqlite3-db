@@ -1,0 +1,21 @@
+# BASED ON COREY SCHAFER TUTORIAL
+# https://www.youtube.com/watch?v=pd-0G0MigUA&t=1343s
+
+import sqlite3
+from fighter import Fighter
+
+conn = sqlite3.connect("ufc_fighters.db")
+
+c = conn.cursor()
+
+c.execute(""" CREATE TABLE ufc (
+                first text,
+                last text,
+                age integer,
+                wins integer,
+                losses integer,
+                draws integer
+            )""")
+
+conn.commit()
+conn.close()
