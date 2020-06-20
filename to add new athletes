@@ -1,0 +1,18 @@
+# BASED ON COREY SCHAFER TUTORIAL
+# https://www.youtube.com/watch?v=pd-0G0MigUA&t=1343s
+
+import sqlite3
+from fighter import Fighter
+
+conn = sqlite3.connect("ufc_fighters.db")
+
+c = conn.cursor()
+
+fighter_1 = Fighter("Brock", "Lesnar", 42, 6, 2, 0)
+
+c.execute("INSERT INTO ufc VALUES (:first, :last, :age, :wins, :losses, :draws)",
+          {'first': fighter_1.first, 'last': fighter_1.last, 'age': fighter_1.age,
+           'wins': fighter_1.wins, 'losses': fighter_1.losses, 'draws': fighter_1.draws})
+
+conn.commit()
+conn.close()
