@@ -1,0 +1,15 @@
+# BASED ON COREY SCHAFER TUTORIAL
+# https://www.youtube.com/watch?v=pd-0G0MigUA&t=1343s
+
+class Fighter:
+    def __init__(self, first, last, age, wins, losses, draws):
+        self.first = first
+        self.last = last
+        self.age = age
+        self.wins = wins
+        self.losses = losses
+        self.draws = draws
+
+    @property
+    def fullname(self):
+        return "{} {}".format(self.first, self.last)
