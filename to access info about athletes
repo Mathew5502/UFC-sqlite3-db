@@ -1,0 +1,17 @@
+# BASED ON COREY SCHAFER TUTORIAL
+# https://www.youtube.com/watch?v=pd-0G0MigUA&t=1343s
+
+import sqlite3
+from fighter import Fighter
+
+conn = sqlite3.connect("ufc_fighters.db")
+
+c = conn.cursor()
+
+
+c.execute("SELECT * FROM ufc WHERE last=:last", {'last': 'Lesnar'})
+print(c.fetchone())
+
+
+conn.commit()
+conn.close()
